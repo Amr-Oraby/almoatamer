@@ -1,0 +1,20 @@
+{
+  "Index": {
+    "title": "Welcome to Almoatamer",
+    "description": "To get started, edit the page.tsx file."
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "orders": "Orders",
+    "messages": "Messages",
+    "gallery": "Gallery",
+    "blogs": "Blogs",
+    "news": "News",
+    "contact": "Contact Us",
+    "bookUmrah": "Book Umrah Al-Badal",
+    "language": "Language",
+    "en": "English",
+    "ar": "Arabic"
+  }
+}
