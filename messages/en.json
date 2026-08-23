@@ -16,5 +16,17 @@
     "language": "Language",
     "en": "English",
     "ar": "Arabic"
+  },
+  "Footer": {
+    "description": "A platform to perform Umrah through qualified individuals for Umrah Al-Badal, to facilitate Muslims unable to perform the rituals and the deceased.",
+    "departments": "Departments",
+    "links": "Links",
+    "contactUs": "Contact Us",
+    "callCenter": "Call Center",
+    "email": "Email",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms & Conditions",
+    "copyright": "© 2026 All Rights Reserved",
+    "verifiedBy": "Verified by Saudi Business Center"
   }
 }

@@ -6,6 +6,7 @@ import { Basic, Geist_Mono } from 'next/font/google';
 import '@fontsource/alyamama';
 import '../globals.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const basic = Basic({
   weight: '400',
@@ -51,7 +52,10 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          {children}
+          <main className="flex-1 flex flex-col w-full">
+            {children}
+          </main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
