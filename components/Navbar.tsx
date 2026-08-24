@@ -64,15 +64,19 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             <LanguageSwitcher />
 
-            <Button variant="ghost" size="icon" className="relative rounded-full text-muted-foreground hover:text-foreground h-10 w-10 sm:h-12 sm:w-12">
-              <Bell className="h-6 w-6 sm:h-7 sm:w-7" />
-              <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 h-2.5 w-2.5 p-0 rounded-full" />
-            </Button>
+            <Link href="/profile/notifications">
+              <Button variant="ghost" size="icon" className="relative rounded-full text-muted-foreground hover:text-foreground h-10 w-10 sm:h-12 sm:w-12">
+                <Bell className="h-6 w-6 sm:h-7 sm:w-7" />
+                <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 h-2.5 w-2.5 p-0 rounded-full bg-red-500 border-none" />
+              </Button>
+            </Link>
             
-            <Avatar className="h-9 w-9 border cursor-pointer hover:opacity-80 transition-opacity">
-              <AvatarImage src="" alt="User" />
-              <AvatarFallback className="bg-primary/10 text-primary">U</AvatarFallback>
-            </Avatar>
+            <Link href="/profile">
+              <Avatar className="h-9 w-9 sm:h-10 sm:w-10 border cursor-pointer hover:opacity-80 transition-opacity bg-white">
+                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Amr" alt="User" />
+                <AvatarFallback className="bg-primary/10 text-primary">U</AvatarFallback>
+              </Avatar>
+            </Link>
 
             {/* Mobile Drawer */}
             <Sheet>

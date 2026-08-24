@@ -1,7 +1,28 @@
 {
   "Index": {
     "title": "Welcome to Almoatamer",
-    "description": "To get started, edit the page.tsx file."
+    "badge": "Trusted by 2M+ pilgrims worldwide",
+    "titlePart1": "Your Umrah journey,",
+    "titlePart2": "guided with ",
+    "titleHighlight": "devotion",
+    "titlePart3": " & ease",
+    "description": "Almoatamer is your personal companion for every step of Umrah — from booking packages and live guides to daily duas, prayer times and spiritual guidance, all in one beautifully crafted app.",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "stat1Value": "120+",
+    "stat1Label": "Packages available",
+    "stat2Value": "4.9",
+    "stat2Label": "App Store rating",
+    "stat3Value": "40+",
+    "stat3Label": "Languages",
+    "mockupLiveGuide": "Live Guide",
+    "mockupLiveGuideSub": "Nearby landmarks",
+    "mockupUmrahRoute": "Umrah Route",
+    "mockupUmrahRouteSub": "Step 3 of 7",
+    "mockupPilgrimPhotos": "Pilgrim Photos",
+    "mockupPilgrimPhotosSub": "52 captured",
+    "mockupDuaReminder": "Dua Reminder",
+    "mockupDuaReminderSub": "Now · 4:52 PM"
   },
   "Navbar": {
     "home": "Home",
@@ -28,5 +49,269 @@
     "termsAndConditions": "Terms & Conditions",
     "copyright": "© 2026 All Rights Reserved",
     "verifiedBy": "Verified by Saudi Business Center"
+  },
+  "Promo": {
+    "title": "Who is Al-Moatamer?",
+    "description": "A certified company with extensive experience serving over five million pilgrims through our platform.",
+    "buttonText": "Get Al-Moatamer App Now",
+    "buttonSubtext": "An easy journey from start to finish"
+  },
+  "Testimonials": {
+    "badge": "Testimonials",
+    "titleStart": "Pilgrim reviews from ",
+    "titleHighlight": "around the world",
+    "reviews": {
+      "0": {
+        "name": "Fatima Al-Rashid",
+        "role": "First-time pilgrim · London",
+        "quote": "\"As a first-time pilgrim I was nervous, but Almoatamer guided me through every step of Tawaf and Sa'i. I felt completely at peace knowing help was one tap away.\""
+      },
+      "1": {
+        "name": "Yusuf Karim",
+        "role": "Group organiser · Kuala Lumpur",
+        "quote": "\"I organised Umrah for 20 family members. The live guide and offline maps saved us countless times. The ritual planner kept our group perfectly on schedule.\""
+      },
+      "2": {
+        "name": "Aisha Mahmood",
+        "role": "Returning pilgrim · Toronto",
+        "quote": "\"The prayer time alerts and curated duas made this journey so much more meaningful. The design is beautiful and everything works flawlessly, even offline.\""
+      },
+      "3": {
+        "name": "Ahmad Abdullah",
+        "role": "Traveler · Cairo",
+        "quote": "\"The app was my comprehensive guide every step of the way. I never felt lost thanks to the accurate maps of the Grand Mosque.\""
+      },
+      "4": {
+        "name": "Maryam Saeed",
+        "role": "Pilgrim · Dubai",
+        "quote": "\"Customer service is excellent and the available packages suit all budgets. I highly recommend it to anyone planning Umrah.\""
+      }
+    }
+  },
+  "Stats": {
+    "title": "Our Achievements in Numbers",
+    "stat1Value": "445+",
+    "stat1Label": "Completed Umrah Requests",
+    "stat2Value": "588+",
+    "stat2Label": "Number of Pilgrims",
+    "stat3Value": "10+",
+    "stat3Label": "National Awards",
+    "stat4Value": "5+",
+    "stat4Label": "Years of Experience"
+  },
+  "AboutHistory": {
+    "title": "Al-Moatamer: A Success Story in Serving the Guests of Allah",
+    "p1": "Our Story: The Al-Moatamer platform was established in 2021, driven by our early realization that the traditional method of organizing Umrah trips lacked flexibility and could not adapt to change. Thus, we launched our digital platform, enabling us to create customizable Umrah and Umrah Plus packages tailored to the needs of every traveler, as well as Umrah by proxy services for the deceased and incapable. We have successfully served over five million pilgrims to date.",
+    "p2": "Our Goal: Al-Moatamer platform aims to provide full support to every pilgrim, starting from a customized itinerary, through every step and ritual of Umrah, to tourism tours across Saudi Arabia. This is based on our comprehensive vision and confidence in our ability to deliver an unmatched Umrah experience using the latest technology.",
+    "p3": "Our Mission: Our mission goes beyond just buying tickets or making reservations; we strive to transform Hajj and Umrah trips into a spiritual experience that meets the needs of every individual in every group, ensuring a unique and memorable journey.",
+    "p4": "Our Values: At Al-Moatamer, we are keen to accompany you every step of your Umrah, responding to all your needs, from simple questions to dealing with any emergency that may occur during the trip, ensuring your journey is completely hassle-free.",
+    "cr": "Commercial Register No. (4031077736)"
+  },
+  "Blogs": {
+    "searchPlaceholder": "Search...",
+    "blog1": "Essential Umrah Rules For Husband And Wife Step By...",
+    "blog2": "Is Toothpaste Permissible While In Ihram? Islamic ...",
+    "blog3": "A Step By Step Guide To Umrah Essentials For Men"
+  },
+  "BlogDetails": {
+    "title": "A Step-by-Step Guide to Umrah Essentials for Men - Benefit Now",
+    "intro": "Before heading to perform the rituals of Umrah, many men are keen to prepare their Umrah essentials correctly to help them perform the rituals with comfort and peace of mind without lacking anything or feeling confused, especially since needs vary from person to person. Given the importance of good organization before traveling, Al-Moatamer highlights the most essential items a pilgrim needs to ensure an easy and organized spiritual journey.",
+    "section1Title": "Umrah Essentials for Men:",
+    "section1Sub1Title": "Ihram Clothing for Men:",
+    "section1Sub1Text": "Men's Ihram clothing consists of two unstitched pieces of cloth: the Izar (lower garment) and the Rida (upper garment). It is preferable that they are made of light and comfortable cotton fabric that aids movement during rituals, provided they are clean, loose, and comply with Islamic Ihram guidelines.",
+    "section1Sub2Title": "Personal Care Items for the Pilgrim:",
+    "section1Sub2Text": "Personal care items include simple tools like a toothbrush, unscented soap, and tissues to maintain hygiene during the trip. These tools are an important part of men's Umrah essentials that help ensure comfort and cleanliness throughout the rituals.",
+    "section1Sub3Title": "Suitable Footwear for Umrah:",
+    "section1Sub3Text": "Suitable footwear for Umrah includes open and comfortable sandals that do not cover the ankles and allow for easy movement during Tawaf and Sa'i. It is preferable to choose lightweight materials to provide comfort and reduce fatigue while performing rituals.",
+    "readMore1": "Read more: ",
+    "link1": "Wearing Sandals in Ihram",
+    "link1Url": "https://umrah.almoatamer.com/blogs/%D9%84%D8%A8%D8%B3-%D8%A7%D9%84%D8%B5%D9%86%D8%AF%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%A7%D8%AD%D8%B1%D8%A7%D9%85",
+    "section1Sub4Title": "Tawaf and Sa'i Essentials:",
+    "section1Sub4Text": "Tawaf and Sa'i essentials include a light bag to carry basic needs such as water, a phone, and a Misbaha (prayer beads) to facilitate movement during the rituals. These tools are an important part of men's Umrah essentials for comfort and organization.",
+    "section1Sub5Title": "Personal Hygiene Items in Umrah:",
+    "section1Sub5Text": "Personal hygiene items include simple tools like a toothbrush, unscented soap, and tissues to maintain cleanliness throughout the journey. These items help the pilgrim feel comfortable and maintain hygiene during the rituals.",
+    "readMore2": "Read more: ",
+    "link2": "What are the rituals of Umrah",
+    "link2Url": "https://umrah.almoatamer.com/blogs/%D9%85%D8%A7%D9%87%D9%8A-%D9%85%D9%86%D8%A7%D8%B3%D9%83-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9",
+    "section2Title": "Health Care and Personal Protection:",
+    "s2b1": "Ihram belt (Money belt): to keep money and documents safe and secure the Izar (very important for men).",
+    "s2b2": "Anti-chafing creams / Vaseline (unscented): among the most important medical supplies for men to prevent chafing caused by thigh friction during walking and Tawaf.",
+    "s2b3": "Umbrella or parasol: to protect against direct sunlight while moving around.",
+    "s2b4": "Personal scissors or razor: to cut/shave hair after completing Sa'i to exit Ihram (to avoid using shared or contaminated tools).",
+    "section3Title": "Technical and Electronic Essentials:",
+    "s3b1": "Power bank: to charge the phone while spending a long time in the Haram.",
+    "s3b2": "Multi-plug charger and adapter: to ensure compatibility with hotel electrical outlets.",
+    "section4Title": "Tools for Keeping Phones and Belongings Safe:",
+    "section4Text": "Tools for keeping phones and belongings safe during Umrah include using a small bag or a secure chest pouch to carry the phone, cash, and ID cards, which helps organize and protect items on the move. These tools are a vital part of men's Umrah essentials.",
+    "section5Title": "Prohibited Items When Going for Umrah?",
+    "s5b1": "Using perfumes and scented deodorants after entering Ihram.",
+    "s5b2": "Sewn clothes for the Muhrim, such as shirts and trousers.",
+    "s5b3": "Grooming and cosmetic products for men during Ihram.",
+    "s5b4": "Any items that violate the Sharia guidelines for men's Umrah.",
+    "s5b5": "Closed shoes that cover the ankles during Ihram.",
+    "section6Title": "Common Mistakes When Preparing Umrah Essentials:",
+    "s6b1": "Carrying unnecessary items that weigh down the suitcase.",
+    "s6b2": "Forgetting Ihram clothing or preparing it improperly.",
+    "s6b3": "Choosing uncomfortable shoes for walking and Tawaf.",
+    "s6b4": "Failing to adhere to the Sharia guidelines for men's Umrah essentials.",
+    "s6b5": "Poor organization of belongings and lack of arrangement before travel.",
+    "section7Title": "Important Tips for Male Pilgrims:",
+    "s7b1": "Prepare essentials well in advance of travel.",
+    "s7b2": "Choose lightweight and comfortable tools to facilitate movement.",
+    "s7b3": "Adhere strictly to Sharia guidelines during Ihram.",
+    "s7b4": "Minimize unnecessary items in the travel bag.",
+    "s7b5": "Ensure Ihram clothing is prepared correctly.",
+    "section8Title": "Frequently Asked Questions:",
+    "q1": "Is it permissible to use deodorant in Ihram?",
+    "a1": "It is not permissible for men to use scented deodorants during Ihram.",
+    "q2": "Are there specific essentials for the elderly?",
+    "a2": "Yes, such as medications, crutches, and comfortable clothing.",
+    "q3": "Can I bring food and drinks among the essentials?",
+    "a3": "Yes, you can bring light snacks and water.",
+    "q4": "Are there specific medical supplies or medications needed?",
+    "a4": "Yes, it is preferable to carry necessary medications depending on your health condition.",
+    "conclusion": "In conclusion, knowing the Umrah essentials for men is an important matter that helps the pilgrim prepare well before traveling, ensuring rituals are performed easily and comfortably without lacking basic needs. With good organization, the journey becomes more peaceful and focused on worship.",
+    "callToActionPrefix": "If you are looking for an organized Umrah experience and reliable services, ",
+    "callToActionBrand": "Al-Moatamer",
+    "callToActionBrandUrl": "https://umrah.almoatamer.com/",
+    "callToActionMiddle": " provides you with support and guidance every step of the way, and also offers a ",
+    "callToActionLink": "Substitute Umrah booking",
+    "callToActionLinkUrl": "https://umrah.almoatamer.com/book-substitute-umrah",
+    "callToActionSuffix": " service in an approved and safe manner to perform the rituals on your behalf or for your loved ones with complete credibility and peace of mind."
+  },
+  "News": {
+    "news1": "Fatwa: The Permissibility Of Proxy Umrah According...",
+    "news2": "Almoatamer Showcases The Services Provided To Gues...",
+    "news3": "Showcasing Package Of Services Provided To The Gue..."
+  },
+  "NewsDetails": {
+    "title": "Al-Moatamer News: Comprehensive Coverage of Latest Developments",
+    "intro": "At Al-Moatamer platform, we ensure you stay updated with the latest news and updates related to Umrah services and facilities provided to the guests of Allah. Follow us to learn more about our continuous efforts to improve the Umrah experience.",
+    "content": "Al-Moatamer services have recently witnessed remarkable developments aimed at facilitating the performance of rituals for Muslims from all over the world. By providing flexible packages and advanced technical services, we always strive to be the first and most reliable choice for everyone intending to perform Umrah. Our teams have continued to provide the best field and technical support to ensure the safety and comfort of pilgrims at every step."
+  },
+  "Contact": {
+    "fullNamePlaceholder": "Full Name",
+    "phonePlaceholder": "Enter your phone number",
+    "emailPlaceholder": "Email Address",
+    "messagePlaceholder": "Message text...",
+    "submitButton": "Send",
+    "contactInfoTitle": "Contact Information",
+    "contactInfoSubtitle": "Contact us to start a direct chat!",
+    "phone": "+966 0533319553",
+    "email": "info@almoatamer.com"
+  },
+  "BookUmrah": {
+    "heroTitle": "Fast and Secure Substitute Umrah Booking Service via Almoatamer Platform",
+    "heroDescription": "Perform Umrah Al-Badal on behalf of your loved ones who are unable to or have passed away. Our trusted platform connects you with qualified individuals to complete the rituals.",
+    "cta": "Multiply your good deeds today"
+  },
+  "WhyChooseUs": {
+    "title": "Why choose us to book a substitute umrah?",
+    "card1Title": "Select date",
+    "card1Text": "You can choose the date for performing the substitute Umrah in accordance with your wishes and needs.",
+    "card2Title": "Reliable implementation",
+    "card2Text": "The performance of Umrah al-Badal is carried out through accredited and trusted individuals, to ensure comfort and peace of mind.",
+    "card3Title": "Legal obligation",
+    "card3Text": "We adhere to all the Sharia requirements for performing the substitute Umrah correctly.",
+    "card4Title": "Transparent pricing",
+    "card4Text": "We provide clear, advertised prices, with no hidden fees or additional costs.",
+    "card5Title": "Quick response",
+    "card5Text": "Our team is ready to respond immediately and complete the service as quickly as possible.",
+    "card6Title": "Secure payment",
+    "card6Text": "Easy and secure electronic payment options, suitable for all users.",
+    "cta": "Book easily now"
+  },
+  "BookingSteps": {
+    "title": "How to book Umrah Al-Badal?",
+    "step1Title": "Register or Login",
+    "step1Text": "Create an account on the Almoatamer platform or log in if you already have one.",
+    "step2Title": "Choose Service",
+    "step2Text": "Select the Umrah Al-Badal service and choose the desired package.",
+    "step3Title": "Provide Details",
+    "step3Text": "Enter the details of the person for whom the Umrah is being performed.",
+    "step4Title": "Secure Payment",
+    "step4Text": "Complete the payment easily through our secure electronic payment options.",
+    "step5Title": "Track Progress",
+    "step5Text": "Receive live updates and a final completion certificate upon finishing the rituals."
+  },
+  "Faqs": {
+    "badge": "FAQs",
+    "title": "Frequently Asked Questions",
+    "description": "Answers to the most common questions about the proxy Umrah booking service",
+    "questions": {
+      "0": {
+        "q": "Can the substitute Umrah be performed after booking?",
+        "a": "Yes, the substitute Umrah is performed on the date you select during the booking process."
+      },
+      "1": {
+        "q": "How long does it take to perform the substitute Umrah after booking?",
+        "a": "The Umrah is typically performed on the scheduled date, and we will notify you once it begins and finishes."
+      },
+      "2": {
+        "q": "Is it possible to choose a specific pilgrim to perform Umrah?",
+        "a": "Currently, our platform automatically assigns a qualified and trusted individual to perform the Umrah on your behalf."
+      },
+      "3": {
+        "q": "Can the booking be cancelled or modified after booking the substitute Umrah?",
+        "a": "Bookings can only be modified or cancelled before the assigned pilgrim begins the rituals (entering Ihram)."
+      },
+      "4": {
+        "q": "How is Umrah performance documented and proof sent?",
+        "a": "We provide video and photo documentation of the Umrah, along with a digital certificate upon completion."
+      },
+      "5": {
+        "q": "How do I book a substitute Umrah?",
+        "a": "You can book easily through our platform by selecting the service, entering the details, and completing the payment."
+      },
+      "6": {
+        "q": "Is it permissible to perform Umrah on behalf of more than one person at the same time?",
+        "a": "No, a single substitute Umrah is performed for one individual only according to Sharia guidelines."
+      },
+      "7": {
+        "q": "Is the service legitimate and accredited?",
+        "a": "Yes, our service is officially accredited and strictly follows all Islamic Sharia requirements."
+      },
+      "8": {
+        "q": "Is it possible to perform more than one Umrah on the same day?",
+        "a": "The substitute pilgrim can only perform one Umrah per day to ensure the rituals are completed correctly."
+      },
+      "9": {
+        "q": "Is it required that the substitute pilgrim be from a specific country?",
+        "a": "No, our trusted pilgrims are residents of Makkah and qualified individuals from various nationalities."
+      }
+    }
+  },
+  "Profile": {
+    "sidebar": {
+      "personalDetails": "Personal Details",
+      "paymentDetails": "Payment Details",
+      "language": "Language",
+      "notifications": "Notifications",
+      "technicalSupport": "Technical Support",
+      "logout": "Logout",
+      "deleteAccount": "Delete Account"
+    },
+    "personalDetails": {
+      "title": "My Account",
+      "fullName": "Full Name",
+      "mobileNumber": "Mobile Number",
+      "changeMobileNumber": "Change Mobile Number",
+      "email": "Email",
+      "country": "Country",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "changePassword": "Change Password",
+      "save": "Save",
+      "enterMobile": "Enter your mobile number",
+      "selectCountry": "Select country",
+      "selectGender": "Select gender"
+    },
+    "languageModal": {
+      "title": "Change Language",
+      "description": "Select your preferred language",
+      "english": "English",
+      "arabic": "العربية (Arabic)"
+    }
   }
 }
