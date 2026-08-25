@@ -26,14 +26,15 @@
   },
   "Navbar": {
     "home": "Home",
-    "about": "About Us",
-    "orders": "Orders",
+    "about": "About",
+    "orders": "My Orders",
     "messages": "Messages",
-    "gallery": "Gallery",
+    "gallery": "Photo Gallery",
     "blogs": "Blogs",
     "news": "News",
     "contact": "Contact Us",
-    "bookUmrah": "Book Umrah Al-Badal",
+    "bookUmrah": "Book Substitute Umrah",
+    "login": "Login",
     "language": "Language",
     "en": "English",
     "ar": "Arabic"
@@ -177,9 +178,12 @@
     "callToActionMiddle": " provides you with support and guidance every step of the way, and also offers a ",
     "callToActionLink": "Substitute Umrah booking",
     "callToActionLinkUrl": "https://umrah.almoatamer.com/book-substitute-umrah",
-    "callToActionSuffix": " service in an approved and safe manner to perform the rituals on your behalf or for your loved ones with complete credibility and peace of mind."
+    "callToActionSuffix": " service in an approved and safe manner to perform the rituals on your behalf or for your loved ones with complete credibility and peace of mind.",
+    "backToBlogs": "Back to Blogs",
+    "bookSubstituteUmrahNow": "Book Substitute Umrah Now"
   },
   "News": {
+    "searchPlaceholder": "Search...",
     "news1": "Fatwa: The Permissibility Of Proxy Umrah According...",
     "news2": "Almoatamer Showcases The Services Provided To Gues...",
     "news3": "Showcasing Package Of Services Provided To The Gue..."
@@ -187,9 +191,18 @@
   "NewsDetails": {
     "title": "Al-Moatamer News: Comprehensive Coverage of Latest Developments",
     "intro": "At Al-Moatamer platform, we ensure you stay updated with the latest news and updates related to Umrah services and facilities provided to the guests of Allah. Follow us to learn more about our continuous efforts to improve the Umrah experience.",
-    "content": "Al-Moatamer services have recently witnessed remarkable developments aimed at facilitating the performance of rituals for Muslims from all over the world. By providing flexible packages and advanced technical services, we always strive to be the first and most reliable choice for everyone intending to perform Umrah. Our teams have continued to provide the best field and technical support to ensure the safety and comfort of pilgrims at every step."
+    "content": "Al-Moatamer services have recently witnessed remarkable developments aimed at facilitating the performance of rituals for Muslims from all over the world. By providing flexible packages and advanced technical services, we always strive to be the first and most reliable choice for everyone intending to perform Umrah. Our teams have continued to provide the best field and technical support to ensure the safety and comfort of pilgrims at every step.",
+    "backToNews": "Back to News",
+    "quote": "We are committed to providing the best services to the guests of Allah to make their journey an unforgettable memory.",
+    "fallbackDescription": "<p>The \"Al-Moatamer\" platform, approved by the Ministry of Hajj and Umrah, highlighted the services provided to the guests of Allah during the \"Hajj Expo\" to achieve the goals of the Kingdom's Vision 2030 programs.</p><p>The platform offers a package of services and information for pilgrims and visitors, enabling them to perform their rituals with ease and comfort. It contributes to raising the quality of services provided and enriching their religious and cultural experience. Among the services are issuing visas, booking packages and programs electronically, in addition to interactive maps, a customized calendar for offers and activities, a digital guide for all instructions in multiple languages, and providing health information and services. It also enables service providers to display their services electronically to pilgrims and visitors, all through the presence of more than 100 companies and institutions licensed by the Ministry of Hajj and Umrah.</p><p>// End //</p><p><a href=\"https://www.spa.gov.sa/w1838689\" target=\"_blank\">https://www.spa.gov.sa/w1838689</a></p>"
   },
   "Contact": {
+    "formTitle": "Get in touch",
+    "formSubtitle": "We'd love to hear from you. Please fill out the form below.",
+    "successTitle": "Success!",
+    "successMessage": "Your message has been sent successfully.",
+    "errorTitle": "Error",
+    "errorMessage": "Failed to send message. Please try again.",
     "fullNamePlaceholder": "Full Name",
     "phonePlaceholder": "Enter your phone number",
     "emailPlaceholder": "Email Address",
@@ -289,6 +302,10 @@
       "notifications": "Notifications",
       "technicalSupport": "Technical Support",
       "logout": "Logout",
+      "confirmLogoutTitle": "Confirm Logout",
+      "confirmLogoutDescription": "Are you sure you want to log out of your account?",
+      "cancel": "Cancel",
+      "confirmLogout": "Confirm Logout",
       "deleteAccount": "Delete Account"
     },
     "personalDetails": {
@@ -305,7 +322,10 @@
       "save": "Save",
       "enterMobile": "Enter your mobile number",
       "selectCountry": "Select country",
-      "selectGender": "Select gender"
+      "selectGender": "Select gender",
+      "saudiArabia": "Saudi Arabia",
+      "egypt": "Egypt",
+      "uae": "United Arab Emirates"
     },
     "languageModal": {
       "title": "Change Language",
@@ -313,5 +333,19 @@
       "english": "English",
       "arabic": "العربية (Arabic)"
     }
+  },
+  "Auth": {
+    "welcomeBack": "Welcome back! We are happy to see you again!",
+    "enterPhoneToSignIn": "Enter your phone number to sign in",
+    "enterPhone": "Enter your phone",
+    "enterPassword": "Enter your password",
+    "forgetPassword": "Forget Password?",
+    "loginButton": "Login",
+    "dontHaveAccount": "Don't have an account?",
+    "registerNow": "Register Now",
+    "orSignInWith": "Or sign in with",
+    "loginSuccess": "Logged in successfully",
+    "loginError": "Invalid credentials, please try again",
+    "logoutSuccess": "Logged out successfully"
   }
 }

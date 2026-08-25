@@ -1,31 +1,31 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { FileCheck, Users, Award, Hourglass } from 'lucide-react';
+import { type SectionThreeData } from '@/app/types/home';
 
-export default function StatsSection() {
+export default function StatsSection({ data }: { data?: SectionThreeData }) {
   const t = useTranslations('Stats');
 
   const stats = [
     {
       icon: <FileCheck className="w-12 h-12 text-[#1a2754]" strokeWidth={1.5} />,
-      value: t('stat1Value'),
+      value: data?.done_umrahs_count ?? t('stat1Value'),
       label: t('stat1Label'),
     },
     {
       icon: <Users className="w-12 h-12 text-[#1a2754]" strokeWidth={1.5} />,
-      value: t('stat2Value'),
+      value: data?.moatmers_count ?? t('stat2Value'),
       label: t('stat2Label'),
     },
     {
       icon: <Award className="w-12 h-12 text-[#1a2754]" strokeWidth={1.5} />,
-      value: t('stat3Value'),
+      value: data?.prizes ?? t('stat3Value'),
       label: t('stat3Label'),
     },
     {
       icon: <Hourglass className="w-12 h-12 text-[#1a2754]" strokeWidth={1.5} />,
-      value: t('stat4Value'),
+      value: data?.experience_years ?? t('stat4Value'),
       label: t('stat4Label'),
     },
   ];
@@ -34,11 +34,13 @@ export default function StatsSection() {
     <section className="relative py-24 mb-16 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <img
           src="/images/ihram-promo.jpg"
           alt="Pilgrims background"
-          fill
-          className="object-cover object-center"
+          onError={(event) => {
+            event.currentTarget.src = "/images/ihram-promo.jpg";
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/60"></div>
       </div>

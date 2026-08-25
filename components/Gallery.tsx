@@ -1,6 +1,8 @@
-import Image from 'next/image';
+"use client";
 
-const galleryImages = [
+import { type SectionFiveData } from '@/app/types/home';
+
+const defaultGalleryImages = [
   { src: '/images/image-1-row-1.jpeg', colSpanClasses: 'col-span-1 md:col-span-1 lg:col-span-1' },
   { src: '/images/image-2-row-1.jpeg', colSpanClasses: 'col-span-1 md:col-span-1 lg:col-span-1' },
   { src: '/images/image-3-row-2.jpeg', colSpanClasses: 'col-span-1 md:col-span-2 lg:col-span-2' },
@@ -9,7 +11,23 @@ const galleryImages = [
   { src: '/images/image-6-row-1.jpeg', colSpanClasses: 'col-span-1 md:col-span-1 lg:col-span-1' },
 ];
 
-export default function Gallery() {
+export default function Gallery({ data }: { data?: SectionFiveData }) {
+  const colSpanClassesPattern = [
+    'col-span-1 md:col-span-1 lg:col-span-1',
+    'col-span-1 md:col-span-1 lg:col-span-1',
+    'col-span-1 md:col-span-2 lg:col-span-2',
+    'col-span-1 md:col-span-1 lg:col-span-1',
+    'col-span-1 md:col-span-2 lg:col-span-2',
+    'col-span-1 md:col-span-1 lg:col-span-1'
+  ];
+
+  const galleryImages = data && data.length > 0
+    ? data.map((src, index) => ({
+      src,
+      colSpanClasses: colSpanClassesPattern[index % colSpanClassesPattern.length]
+    }))
+    : defaultGalleryImages;
+
   return (
     <section className="container mx-auto px-4 py-8 mb-16">
       <div className="max-w-7xl mx-auto">
@@ -19,12 +37,13 @@ export default function Gallery() {
               key={index}
               className={`relative h-64 rounded-[2rem] overflow-hidden group ${image.colSpanClasses}`}
             >
-              <Image
+              <img
                 src={image.src}
                 alt={`Gallery image ${index + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onError={(event) => {
+                  event.currentTarget.src = "/images/image-1-row-1.jpeg";
+                }}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
           ))}

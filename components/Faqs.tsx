@@ -37,7 +37,7 @@ export default function Faqs() {
                 value={`item-${index}`}
                 className="border border-gray-200 rounded-xl px-6 bg-white shadow-sm hover:shadow-md transition-shadow data-[state=open]:border-amber-500 data-[state=open]:shadow-md border-b"
               >
-                <AccordionTrigger className="flex w-full items-center justify-between text-start font-bold text-gray-800 hover:text-amber-500 hover:no-underline py-5 text-base md:text-lg gap-4">
+                <AccordionTrigger className="flex w-full items-center justify-between text-left font-bold text-gray-800 hover:text-amber-500 hover:no-underline py-5 text-base md:text-lg gap-4">
                   {t(`questions.${index}.q`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 text-base pb-5 leading-relaxed">
@@ -55,7 +55,7 @@ export default function Faqs() {
                 value={`item-${index}`}
                 className=" border border-gray-200 rounded-xl px-6 bg-white shadow-sm hover:shadow-md transition-shadow data-[state=open]:border-amber-500 data-[state=open]:shadow-md border-b"
               >
-                <AccordionTrigger className="flex w-full items-center justify-between text-start font-bold text-gray-800 hover:text-amber-500 hover:no-underline py-5 text-base md:text-lg gap-4">
+                <AccordionTrigger className=" flex w-full items-center justify-between text-left font-bold text-gray-800 hover:text-amber-500 hover:no-underline py-5 text-base md:text-lg gap-4">
                   {t(`questions.${index}.q`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 text-base pb-5 leading-relaxed">

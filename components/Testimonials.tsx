@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
+import { type SectionFourData } from '@/app/types/home';
 
 const AVATARS = [
   "https://i.pravatar.cc/150?img=47", // Random female avatar for Fatima
@@ -20,18 +20,26 @@ const AVATARS = [
   "https://i.pravatar.cc/150?img=12", // Random female avatar for Maryam
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ data }: { data?: SectionFourData }) {
   const t = useTranslations('Testimonials');
   const locale = useLocale();
   const isRtl = locale === 'ar';
 
-  const reviews = [0, 1, 2, 3, 4].map((index) => ({
+  const defaultReviews = [0, 1, 2, 3, 4].map((index) => ({
     name: t(`reviews.${index}.name`),
     role: t(`reviews.${index}.role`),
     quote: t(`reviews.${index}.quote`),
     avatar: AVATARS[index],
   }));
 
+  const reviews = data && data.length > 0
+    ? data.map((testimonial) => ({
+      name: testimonial.name,
+      role: t('badge'), // Fallback role if there is none
+      quote: testimonial.text,
+      avatar: testimonial.image
+    }))
+    : defaultReviews;
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="flex flex-col items-center text-center mb-16">
@@ -83,7 +91,14 @@ export default function Testimonials() {
                       {/* Profile */}
                       <div className="flex items-center gap-4 mt-auto">
                         <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-gray-200">
-                          <Image src={review.avatar} alt={review.name} fill className="object-cover" />
+                          <img
+                            src={review.avatar}
+                            alt={review.name}
+                            onError={(event) => {
+                              event.currentTarget.src = "https://i.pravatar.cc/150?img=68";
+                            }}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
                         </div>
                         <div>
                           <h4 className="font-bold text-[#1a2754] text-start">{review.name}</h4>

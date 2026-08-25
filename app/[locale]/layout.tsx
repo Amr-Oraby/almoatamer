@@ -5,8 +5,8 @@ import { routing } from '@/i18n/routing';
 import { Basic, Geist_Mono } from 'next/font/google';
 import '@fontsource/alyamama';
 import '../globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Providers from '@/components/Providers';
+import { Toaster } from '@/components/ui/toast';
 
 const basic = Basic({
   weight: '400',
@@ -51,11 +51,12 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir} className={`${basic.variable} ${geistMono.variable} h-full antialiased`} style={fontStyle}>
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="flex-1 flex flex-col w-full">
-            {children}
-          </main>
-          <Footer />
+          <Providers>
+            <main className="flex-1 flex flex-col w-full">
+              {children}
+            </main>
+            <Toaster />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

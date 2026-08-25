@@ -6,8 +6,6 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { Menu, Bell, User, Phone, Mail } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube, FaSnapchatGhost } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import {
   Sheet,
   SheetContent,
@@ -16,15 +14,15 @@ import {
 import TopBar from './TopBar';
 import Image from 'next/image';
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
   const t = useTranslations('Navbar');
   const pathname = usePathname();
 
   const navLinks = [
     { href: '/', label: t('home') },
     { href: '/about', label: t('about') },
-    { href: '/orders', label: t('orders') },
-    { href: '/messages', label: t('messages') },
+    ...(isLoggedIn ? [{ href: '/orders', label: t('orders') }] : []),
+    ...(isLoggedIn ? [{ href: '/messages', label: t('messages') }] : []),
     { href: '/gallery', label: t('gallery') },
     { href: '/blogs', label: t('blogs') },
     { href: '/news', label: t('news') },
@@ -37,7 +35,7 @@ export default function Navbar() {
       <TopBar />
       <header className="bg-background/80 backdrop-blur-md border-b shadow-sm transition-all w-full">
         <nav className="w-full px-4 md:px-12 lg:px-24 mx-auto h-24 flex items-center justify-between gap-4">
-          
+
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
@@ -48,12 +46,11 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-8 mx-auto">
             {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
-                className={`text-base xl:text-lg font-medium py-2 transition-colors hover:text-primary ${
-                  pathname === link.href ? 'text-primary font-bold' : 'text-muted-foreground'
-                }`}
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-base xl:text-lg font-medium py-2 transition-colors hover:text-primary ${pathname === link.href ? 'text-primary font-bold' : 'text-muted-foreground'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -64,19 +61,22 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             <LanguageSwitcher />
 
-            <Link href="/profile/notifications">
-              <Button variant="ghost" size="icon" className="relative rounded-full text-muted-foreground hover:text-foreground h-10 w-10 sm:h-12 sm:w-12">
-                <Bell className="h-6 w-6 sm:h-7 sm:w-7" />
-                <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 h-2.5 w-2.5 p-0 rounded-full bg-red-500 border-none" />
-              </Button>
-            </Link>
-            
-            <Link href="/profile">
-              <Avatar className="h-9 w-9 sm:h-10 sm:w-10 border cursor-pointer hover:opacity-80 transition-opacity bg-white">
-                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Amr" alt="User" />
-                <AvatarFallback className="bg-primary/10 text-primary">U</AvatarFallback>
-              </Avatar>
-            </Link>
+            {isLoggedIn ? (
+              <div className="hidden sm:flex items-center gap-3">
+                <Link href="/profile/notifications" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Bell className="h-6 w-6" />
+                </Link>
+                <Link href="/profile" className="flex items-center justify-center w-10 h-10 rounded-full bg-black text-white overflow-hidden transition-opacity hover:opacity-90">
+                  <User className="h-6 w-6" />
+                </Link>
+              </div>
+            ) : (
+              <Link href="/login">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 rounded-full shadow-md transition-all hidden sm:flex">
+                  {t('login')}
+                </Button>
+              </Link>
+            )}
 
             {/* Mobile Drawer */}
             <Sheet>
@@ -89,27 +89,48 @@ export default function Navbar() {
                 <div className="p-6 border-b flex items-center justify-center bg-muted/30">
                   <Image src="/logo.svg" alt="Almoatamer Logo" width={200} height={50} className="h-12 w-auto" />
                 </div>
-                
+
                 {/* Drawer Links */}
                 <div className="flex-1 overflow-y-auto py-4">
                   <div className="flex flex-col">
                     {navLinks.map((link) => {
                       const isActive = pathname === link.href;
                       return (
-                        <Link 
-                          key={link.href} 
-                          href={link.href} 
-                          className={`text-lg font-medium px-6 py-4 transition-all duration-200 border-l-4 ${
-                            isActive 
-                              ? 'text-primary font-bold bg-primary/5 border-primary' 
-                              : 'text-muted-foreground border-transparent hover:text-primary hover:bg-muted/50 hover:border-primary/50'
-                          }`}
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={`text-lg font-medium px-6 py-4 transition-all duration-200 border-l-4 ${isActive
+                            ? 'text-primary font-bold bg-primary/5 border-primary'
+                            : 'text-muted-foreground border-transparent hover:text-primary hover:bg-muted/50 hover:border-primary/50'
+                            }`}
                         >
                           {link.label}
                         </Link>
                       );
                     })}
                   </div>
+                </div>
+
+                <div className="p-6">
+                  {isLoggedIn ? (
+                    <div className="flex items-center gap-4">
+                      <Link href="/profile" className="flex items-center gap-3 flex-1 bg-muted/50 hover:bg-muted p-3 rounded-xl transition-colors">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white">
+                          <User className="h-6 w-6" />
+                        </div>
+                        <span className="font-semibold text-foreground">Profile</span>
+                      </Link>
+                      <Link href="/profile/notifications" className="p-4 bg-muted/50 hover:bg-muted rounded-xl transition-colors text-muted-foreground hover:text-primary">
+                        <Bell className="h-6 w-6" />
+                      </Link>
+                    </div>
+                  ) : (
+                    <Link href="/login">
+                      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-6 rounded-xl shadow-md transition-all text-lg">
+                        {t('login')}
+                      </Button>
+                    </Link>
+                  )}
                 </div>
 
                 {/* Drawer Footer */}
@@ -125,7 +146,7 @@ export default function Navbar() {
                       <span>info@almoatamer.com</span>
                     </a>
                   </div>
-                  
+
                   {/* Social Icons in Drawer */}
                   <div className="flex items-center gap-4 mt-6 pt-6 border-t border-border/50 text-muted-foreground">
                     <Link href="#" className="hover:text-primary transition-colors"><FaInstagram size={18} /></Link>
@@ -139,7 +160,7 @@ export default function Navbar() {
               </SheetContent>
             </Sheet>
           </div>
-          
+
         </nav>
       </header>
     </div>

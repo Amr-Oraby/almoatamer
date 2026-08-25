@@ -1,8 +1,9 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
+import { type AboutSectionTwoData } from '@/app/types/about';
 
-export default function AboutHistory() {
+export default function AboutHistory({ data }: { data?: AboutSectionTwoData }) {
   const t = useTranslations('AboutHistory');
 
   return (
@@ -18,16 +19,23 @@ export default function AboutHistory() {
       <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a2754] mb-8 rtl:text-right ltr:text-left">
-            {t('title')}
+            {data?.title || t('title')}
           </h2>
 
-          <div className="space-y-6 text-gray-700 leading-relaxed rtl:text-right ltr:text-left text-base md:text-lg">
-            <p><strong>{t('p1').split(':')[0]}:</strong> {t('p1').split(':').slice(1).join(':')}</p>
-            <p><strong>{t('p2').split(':')[0]}:</strong> {t('p2').split(':').slice(1).join(':')}</p>
-            <p><strong>{t('p3').split(':')[0]}:</strong> {t('p3').split(':').slice(1).join(':')}</p>
-            <p><strong>{t('p4').split(':')[0]}:</strong> {t('p4').split(':').slice(1).join(':')}</p>
-            <p className="pt-4 font-semibold text-[#1a2754]">{t('cr')}</p>
-          </div>
+          {data?.description ? (
+            <div
+              className="space-y-6 text-gray-700 leading-relaxed rtl:text-right ltr:text-left text-base md:text-lg prose prose-p:my-0 prose-strong:text-[#1a2754]"
+              dangerouslySetInnerHTML={{ __html: data.description }}
+            />
+          ) : (
+            <div className="space-y-6 text-gray-700 leading-relaxed rtl:text-right ltr:text-left text-base md:text-lg">
+              <p><strong>{t('p1').split(':')[0]}:</strong> {t('p1').split(':').slice(1).join(':')}</p>
+              <p><strong>{t('p2').split(':')[0]}:</strong> {t('p2').split(':').slice(1).join(':')}</p>
+              <p><strong>{t('p3').split(':')[0]}:</strong> {t('p3').split(':').slice(1).join(':')}</p>
+              <p><strong>{t('p4').split(':')[0]}:</strong> {t('p4').split(':').slice(1).join(':')}</p>
+              <p className="pt-4 font-semibold text-[#1a2754]">{t('cr')}</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -4,8 +4,9 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Star, MapPin, Route, Camera, HeartHandshake } from 'lucide-react';
 import { FaApple, FaGooglePlay } from 'react-icons/fa';
+import { type SectionOneData } from '@/app/types/home';
 
-export default function Hero() {
+export default function Hero({ data }: { data?: SectionOneData }) {
   const t = useTranslations('Index');
 
   return (
@@ -14,10 +15,10 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-100/40 dark:bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
       <div className="w-full px-4 md:px-12 lg:px-24 xl:px-32 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-        
+
         {/* Left Content */}
         <div className="flex flex-col items-center lg:items-start gap-6 lg:gap-8 z-10 w-full">
-          
+
           {/* Badge */}
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-amber-100/60 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 rounded-full font-medium text-sm border border-amber-200/50 dark:border-amber-800/50 shadow-sm text-center">
             <Star className="w-4 h-4 fill-amber-500 text-amber-500 shrink-0" />
@@ -34,9 +35,16 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="text-lg text-slate-600 dark:text-muted-foreground leading-relaxed max-w-[540px] text-center lg:text-start">
-            {t('description')}
-          </p>
+          {data?.info ? (
+            <div
+              className="text-lg text-slate-600 dark:text-muted-foreground leading-relaxed max-w-[540px] text-center lg:text-start prose prose-p:my-0 prose-strong:text-slate-900 dark:prose-strong:text-slate-100"
+              dangerouslySetInnerHTML={{ __html: data.info }}
+            />
+          ) : (
+            <p className="text-lg text-slate-600 dark:text-muted-foreground leading-relaxed max-w-[540px] text-center lg:text-start">
+              {t('description')}
+            </p>
+          )}
 
           {/* Buttons */}
           <div className="flex flex-row w-full sm:w-auto justify-center gap-2 sm:gap-4 mt-2">
@@ -74,13 +82,15 @@ export default function Hero() {
 
         {/* Right Content (Mockup) */}
         <div className="hidden lg:flex relative w-full items-center justify-center lg:justify-end mt-10 lg:mt-0 z-10">
-          <Image 
-            src="/hero-phone-1.png" 
-            alt="Almoatamer App Mockup" 
-            width={600} 
-            height={800} 
+          <img
+            src={data?.images || "/images/hero-phone-1.png"}
+            alt="Almoatamer App Mockup"
+            onError={(event) => {
+              event.currentTarget.src = "/hero-phone-1.png";
+            }}
+            width={600}
+            height={800}
             className="w-full max-w-[400px] lg:max-w-[500px] h-auto object-contain drop-shadow-2xl"
-            priority
           />
         </div>
 
