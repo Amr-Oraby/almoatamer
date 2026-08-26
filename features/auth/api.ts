@@ -1,6 +1,7 @@
 import { apiClient } from "@/lib/api/client";
 
 export const logout = () => apiClient("/api/auth/logout", { method: "POST" });
+export const deleteAccount = () => apiClient("/api/auth/delete-account", { method: "DELETE" });
 
 export const login = (credentials: {
     phone_code: string;

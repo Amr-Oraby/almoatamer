@@ -14,6 +14,16 @@ export interface Status {
     name: string;
 }
 
+export interface TwafData {
+    date: string | null;
+    twaf_num: number;
+}
+
+export interface QuestData {
+    date: string | null;
+    quest_num: number;
+}
+
 export interface CycleStep {
     id: number;
     key: string;
@@ -21,7 +31,7 @@ export interface CycleStep {
     media: string | null;
     title: string;
     is_done: boolean;
-    other_data: any; // Can be typed further if needed
+    other_data: TwafData[] | QuestData[] | null;
 }
 
 export interface Order {
@@ -54,9 +64,9 @@ export interface Order {
     other_relation: string | null;
     status: Status;
     cycle: CycleStep[];
-    media: any[];
+    media: unknown[];
     chat_id: number | null;
-    documented_media: any[];
+    documented_media: unknown[];
     instapay: string;
     created_at: string;
     updated_at: string;

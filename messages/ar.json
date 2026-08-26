@@ -306,7 +306,11 @@
       "confirmLogoutDescription": "هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟",
       "cancel": "إلغاء",
       "confirmLogout": "تأكيد الخروج",
-      "deleteAccount": "حذف الحساب"
+      "deleteAccount": "حذف الحساب",
+      "confirmDeleteAccountTitle": "تأكيد حذف الحساب",
+      "confirmDeleteAccountDescription": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
+      "confirmDeleteAccount": "حذف الحساب",
+      "deletingAccount": "جاري الحذف..."
     },
     "personalDetails": {
       "title": "حسابي",
@@ -348,6 +352,7 @@
     "loginSuccess": "تم تسجيل الدخول بنجاح",
     "loginError": "بيانات الاعتماد غير صالحة، يرجى المحاولة مرة أخرى",
     "logoutSuccess": "تم تسجيل الخروج بنجاح",
+    "deleteAccountSuccess": "تم حذف الحساب بنجاح",
     "enterDetailsToRegister": "الرجاء إدخال بياناتك لإنشاء حساب",
     "enterName": "الاسم بالكامل",
     "enterEmail": "البريد الالكتروني",

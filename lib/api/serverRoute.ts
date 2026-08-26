@@ -5,7 +5,7 @@ import { apiFetch } from "./fetcher";
 interface ServerRouteOptions {
     endpoint: string;
     method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-    body?: any;
+    body?: unknown;
     requireAuth?: boolean;
     headers?: Record<string, string>;
     errorMessage?: string;
@@ -50,11 +50,12 @@ export async function serverRoute({
         }
 
         return NextResponse.json(data);
-    } catch (error: any) {
-        console.error(`Route Error [${method} ${endpoint}]:`, error);
+    } catch (error: unknown) {
+        const err = error as Error & { status?: number };
+        console.error(`Route Error [${method} ${endpoint}]:`, err);
         return NextResponse.json(
-            { message: error.message || errorMessage },
-            { status: error.status || 500 }
+            { message: err.message || errorMessage },
+            { status: err.status || 500 }
         );
     }
 }
@@ -62,10 +63,10 @@ export async function serverRoute({
 export const serverGet = (endpoint: string, requireAuth = true, headers?: Record<string, string>) =>
     serverRoute({ endpoint, method: "GET", requireAuth, headers, errorMessage: "Failed to fetch data" });
 
-export const serverPost = (endpoint: string, body: any, requireAuth = true, headers?: Record<string, string>) =>
+export const serverPost = (endpoint: string, body: unknown, requireAuth = true, headers?: Record<string, string>) =>
     serverRoute({ endpoint, method: "POST", body, requireAuth, headers, errorMessage: "Failed to submit data" });
 
-export const serverPut = (endpoint: string, body: any, requireAuth = true, headers?: Record<string, string>) =>
+export const serverPut = (endpoint: string, body: unknown, requireAuth = true, headers?: Record<string, string>) =>
     serverRoute({ endpoint, method: "PUT", body, requireAuth, headers, errorMessage: "Failed to update data" });
 
 export const serverDelete = (endpoint: string, requireAuth = true, headers?: Record<string, string>) =>

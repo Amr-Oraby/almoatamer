@@ -306,7 +306,11 @@
       "confirmLogoutDescription": "Are you sure you want to log out of your account?",
       "cancel": "Cancel",
       "confirmLogout": "Confirm Logout",
-      "deleteAccount": "Delete Account"
+      "deleteAccount": "Delete Account",
+      "confirmDeleteAccountTitle": "Confirm Delete Account",
+      "confirmDeleteAccountDescription": "Are you sure you want to delete your account? This action cannot be undone.",
+      "confirmDeleteAccount": "Delete Account",
+      "deletingAccount": "Deleting..."
     },
     "personalDetails": {
       "title": "My Account",
@@ -348,6 +352,7 @@
     "loginSuccess": "Logged in successfully",
     "loginError": "Invalid credentials, please try again",
     "logoutSuccess": "Logged out successfully",
+    "deleteAccountSuccess": "Account deleted successfully",
     "enterDetailsToRegister": "Please enter your details to create an account",
     "enterName": "Full Name",
     "enterEmail": "Email Address",

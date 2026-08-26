@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { login, logout, register, forgetPassword, verify, resetPassword, resendCode } from "./api";
+import { login, logout, deleteAccount, register, forgetPassword, verify, resetPassword, resendCode } from "./api";
 import { useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "@/components/ui/toast";
@@ -47,6 +47,30 @@ export function useLogout() {
         onError: () => {
             toast.dismiss("logout-toast");
         }
+    });
+}
+
+export function useDeleteAccount() {
+    const router = useRouter();
+    const t = useTranslations("Auth");
+
+    return useMutation({
+        mutationFn: () => deleteAccount(),
+        onMutate: () => {
+            toast.loading("...", { id: "delete-account-toast" });
+        },
+        onSuccess: () => {
+            // Using a fallback if translation is missing since I don't know if it exists
+            toast.success(t("deleteAccountSuccess") || "Account deleted successfully", { id: "delete-account-toast" });
+            router.push("/");
+            router.refresh();
+        },
+        onError: (error: any) => {
+            toast.error(error.message || "Failed to delete account", { id: "delete-account-toast" });
+        },
+        onSettled: () => {
+            toast.dismiss("delete-account-toast");
+        },
     });
 }
 

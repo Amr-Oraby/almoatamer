@@ -3,7 +3,7 @@ import { ProfileResponse } from "@/app/types/UserType";
 
 export const getProfile = () => apiClient<ProfileResponse>("/api/profile", { method: "GET" });
 
-export const updateProfile = (data: any) =>
+export const updateProfile = (data: FormData) =>
     apiClient<ProfileResponse>("/api/profile", {
         method: "POST",
         body: data,

@@ -22,7 +22,7 @@ import { useCountries } from '@/features/countries/hooks';
 export default function ProfileForm() {
   const t = useTranslations('Profile.personalDetails');
   const { mutate: updateProfile, isPending } = useUpdateProfile();
-  const { data: profileResponse, isLoading } = useProfile();
+  const { data: profileResponse } = useProfile();
   const profile = profileResponse?.data;
   const { data: countriesResponse, isLoading: isCountriesLoading } = useCountries();
   const countries = countriesResponse?.data;
@@ -41,11 +41,7 @@ export default function ProfileForm() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (profile?.image) {
-      setImagePreview(profile.image);
-    }
-  }, [profile?.image]);
+  const displayImage = imagePreview || profile?.image;
 
   const { register, handleSubmit, control, formState: { errors } } = useForm({
     values: {
@@ -58,7 +54,7 @@ export default function ProfileForm() {
     }
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Record<string, string>) => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('email', data.email);
@@ -81,8 +77,8 @@ export default function ProfileForm() {
       <div className="flex flex-col items-center justify-center mb-6 md:mb-10">
         <div className="relative">
           <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-50 shadow-md bg-gray-100 flex items-center justify-center">
-            {imagePreview ? (
-              <Image src={imagePreview} alt="Profile" width={128} height={128} className="w-full h-full object-cover" />
+            {displayImage ? (
+              <Image src={displayImage} alt="Profile" width={128} height={128} className="w-full h-full object-cover" />
             ) : (
               <span className="text-gray-400 text-sm font-medium">{t('noImage') || 'No image'}</span>
             )}
@@ -152,7 +148,7 @@ export default function ProfileForm() {
                     </div>
                   </SelectTrigger>
                   <SelectContent>
-                    {countries?.map((country: any) => (
+                    {countries?.map((country: { id: number; code: string }) => (
                       <SelectItem key={country.id} value={country.code?.toString()}>
                         +{country.code}
                       </SelectItem>
@@ -194,13 +190,13 @@ export default function ProfileForm() {
               <SelectTrigger id="country_id" className="h-12 w-full bg-white border-gray-200 rounded-xl !px-4 shadow-sm focus:ring-amber-500">
                 <div className="flex items-center justify-between w-full">
                   <SelectValue placeholder={t('selectCountry')}>
-                    {countries?.find((c) => c.id.toString() === field.value)?.name}
+                    {countries?.find((c: { id: number; name: string }) => c.id.toString() === field.value)?.name}
                   </SelectValue>
                   {isCountriesLoading && <Loader2 className="h-4 w-4 animate-spin text-gray-500 mr-2" />}
                 </div>
               </SelectTrigger>
               <SelectContent>
-                {countries?.map((country: any) => (
+                {countries?.map((country: { id: number; name: string }) => (
                   <SelectItem key={country.id} value={country.id?.toString()}>
                     {country.name}
                   </SelectItem>

@@ -13,7 +13,7 @@ import {
   Trash2 
 } from 'lucide-react';
 import LanguageDialog from './LanguageDialog';
-import { useLogout } from '@/features/auth/hooks';
+import { useLogout, useDeleteAccount } from '@/features/auth/hooks';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -30,7 +30,9 @@ export default function ProfileSidebar() {
   const pathname = usePathname();
   const [languageDialogOpen, setLanguageDialogOpen] = useState(false);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+  const [deleteAccountDialogOpen, setDeleteAccountDialogOpen] = useState(false);
   const { mutate: performLogout, isPending: isLoggingOut } = useLogout();
+  const { mutate: performDeleteAccount, isPending: isDeletingAccount } = useDeleteAccount();
 
   const mainLinks = [
     { href: '/profile', label: t('personalDetails'), icon: User },
@@ -117,6 +119,7 @@ export default function ProfileSidebar() {
           </button>
 
           <button
+            onClick={() => setDeleteAccountDialogOpen(true)}
             className="flex items-center justify-center lg:justify-start gap-3 px-0 lg:px-6 py-3 md:py-4 transition-colors border-s-4 border-transparent text-red-500 hover:bg-red-50 hover:text-red-600 w-full text-start"
             title={t('deleteAccount')}
           >
@@ -149,6 +152,27 @@ export default function ProfileSidebar() {
               {t('confirmLogout')}
             </AlertDialogAction>
             <AlertDialogCancel disabled={isLoggingOut}>{t('cancel')}</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={deleteAccountDialogOpen} onOpenChange={setDeleteAccountDialogOpen}>
+        <AlertDialogContent className="rounded-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('confirmDeleteAccountTitle') || 'Confirm Delete Account'}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('confirmDeleteAccountDescription') || 'Are you sure you want to delete your account? This action cannot be undone.'}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="gap-3">
+            <AlertDialogCancel className="rounded-xl">{t('cancel')}</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={() => performDeleteAccount()} 
+              disabled={isDeletingAccount}
+              className="rounded-xl bg-red-500 hover:bg-red-600 focus:ring-red-500"
+            >
+              {isDeletingAccount ? t('deletingAccount') || 'Deleting...' : t('confirmDeleteAccount') || 'Delete Account'}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

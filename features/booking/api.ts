@@ -38,3 +38,10 @@ export const createBooking = async (payload: CreateBookingPayload) => {
         body: JSON.stringify(payload),
     });
 }
+
+export const uploadUmrahInstapay = async (formData: FormData) => {
+    return apiClient<any>(`/api/upload-umrah-instapay`, {
+        method: "POST",
+        body: formData,
+    });
+}

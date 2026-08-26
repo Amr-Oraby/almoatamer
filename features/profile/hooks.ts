@@ -14,7 +14,7 @@ export function useUpdateProfile() {
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: (data: any) => updateProfile(data),
+        mutationFn: (data: FormData) => updateProfile(data),
         onMutate: () => {
             toast.loading("...", { id: "update-profile-toast" });
         },
@@ -22,7 +22,7 @@ export function useUpdateProfile() {
             toast.success("Profile updated successfully!", { id: "update-profile-toast" });
             queryClient.invalidateQueries({ queryKey: ["profile"] });
         },
-        onError: (error: any) => {
+        onError: (error: Error) => {
             toast.error(error.message || "Failed to update profile", { id: "update-profile-toast" });
         },
     });

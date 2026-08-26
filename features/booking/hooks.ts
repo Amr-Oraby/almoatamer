@@ -6,7 +6,8 @@ import {
     getStatuses, 
     getLangs, 
     getRelatives, 
-    createBooking 
+    createBooking,
+    uploadUmrahInstapay
 } from "./api";
 import { CreateBookingPayload } from "@/app/types/booking";
 
@@ -62,6 +63,27 @@ export function useCreateBooking() {
         },
         onError: (error: any) => {
             toast.error(error.message || "Failed to create booking");
+        },
+    });
+}
+
+export function useUploadUmrahInstapay() {
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: async (formData: FormData) => {
+            return uploadUmrahInstapay(formData);
+        },
+        onSuccess: (data: any) => {
+            if (data?.status === "fail") {
+                toast.error(data.message || "Failed to upload image");
+                return;
+            }
+            toast.success(data?.message || "Image uploaded successfully!");
+            queryClient.invalidateQueries({ queryKey: ["orders"] });
+        },
+        onError: (error: any) => {
+            toast.error(error.message || "Failed to upload image");
         },
     });
 }

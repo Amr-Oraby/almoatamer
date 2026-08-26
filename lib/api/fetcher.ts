@@ -5,7 +5,7 @@ const BASE_URL = "http://umrah.azmy.aait-d.com/api/v1/client/";
 
 interface FetchOptions extends Omit<RequestInit, "body"> {
     endpoint: string;
-    body?: any; // Changed to any to fix TS error when passing to fetch body
+    body?: unknown;
 }
 
 export async function apiFetch<T>({
@@ -63,7 +63,7 @@ export async function apiFetch<T>({
 
     if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        const error: any = new Error(errorData.message || `Request failed: ${response.status}`);
+        const error = new Error(errorData.message || `Request failed: ${response.status}`) as Error & { status?: number };
         error.status = response.status;
         throw error;
     }

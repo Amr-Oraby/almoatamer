@@ -10,6 +10,8 @@ import { useRouter } from "@/i18n/routing";
 import OrderEditModal from "./OrderEditModal";
 import OrderDeleteModal from "./OrderDeleteModal";
 import OrderCancelModal from "./OrderCancelModal";
+import PaymentMethodModal from "./PaymentMethodModal";
+import InstapayModal from "./InstapayModal";
 
 interface OrderDetailsClientProps {
     orderId: string;
@@ -19,6 +21,8 @@ export default function OrderDetailsClient({ orderId }: OrderDetailsClientProps)
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    const [isInstapayModalOpen, setIsInstapayModalOpen] = useState(false);
     const t = useTranslations("OrderDetails");
     const tCard = useTranslations("OrderCard"); // for common terms like beneficiary, status
     const router = useRouter();
@@ -97,12 +101,14 @@ export default function OrderDetailsClient({ orderId }: OrderDetailsClientProps)
                         >
                             {t("delete")}
                         </button>
-                        <button 
-                            onClick={() => setIsEditModalOpen(true)}
-                            className="flex-1 py-3 bg-[#1a2754] text-white font-semibold rounded-lg hover:bg-[#121c3b] transition-colors shadow-sm"
-                        >
-                            {t("edit")}
-                        </button>
+                        {order.umrah_status === "pending" && (
+                            <button 
+                                onClick={() => setIsEditModalOpen(true)}
+                                className="flex-1 py-3 bg-[#1a2754] text-white font-semibold rounded-lg hover:bg-[#121c3b] transition-colors shadow-sm"
+                            >
+                                {t("edit")}
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -182,7 +188,10 @@ export default function OrderDetailsClient({ orderId }: OrderDetailsClientProps)
                         >
                             {t("cancelUmrah")}
                         </button>
-                        <button className="flex-[2] py-4 bg-[#1a2754] text-white font-semibold rounded-lg shadow-sm hover:bg-[#121c3b] transition-colors">
+                        <button 
+                            onClick={() => setIsPaymentModalOpen(true)}
+                            className="flex-[2] py-4 bg-[#1a2754] text-white font-semibold rounded-lg shadow-sm hover:bg-[#121c3b] transition-colors"
+                        >
                             {t("choosePayment")}
                         </button>
                     </div>
@@ -204,6 +213,27 @@ export default function OrderDetailsClient({ orderId }: OrderDetailsClientProps)
             <OrderCancelModal
                 isOpen={isCancelModalOpen}
                 onClose={() => setIsCancelModalOpen(false)}
+                orderId={orderId}
+            />
+
+            <PaymentMethodModal
+                isOpen={isPaymentModalOpen}
+                onClose={() => setIsPaymentModalOpen(false)}
+                orderId={orderId}
+                onInstapayClick={() => {
+                    setIsPaymentModalOpen(false);
+                    setIsInstapayModalOpen(true);
+                }}
+            />
+
+            <InstapayModal
+                isOpen={isInstapayModalOpen}
+                onClose={() => setIsInstapayModalOpen(false)}
+                onBack={() => {
+                    setIsInstapayModalOpen(false);
+                    setIsPaymentModalOpen(true);
+                }}
+                orderPrice={order.total_price}
                 orderId={orderId}
             />
         </div>
