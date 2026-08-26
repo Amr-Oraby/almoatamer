@@ -1,7 +1,7 @@
 import { getLocale } from 'next-intl/server';
 import { headers as nextHeaders } from 'next/headers';
 
-const BASE_URL = "http://umrah.azmy.aait-d.com/api/v1/client/";
+const BASE_URL = "https://umrah.azmy.aait-d.com/api/v1/client/";
 
 interface FetchOptions extends Omit<RequestInit, "body"> {
     endpoint: string;

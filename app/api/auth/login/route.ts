@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
 
-        const response = await fetch("http://umrah.azmy.aait-d.com/api/v1/client/login", {
+        const response = await fetch("https://umrah.azmy.aait-d.com/api/v1/client/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

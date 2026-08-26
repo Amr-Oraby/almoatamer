@@ -7,7 +7,7 @@ export type ContactFormValues = {
 };
 
 const submitContactForm = async (data: ContactFormValues, locale: string) => {
-  const response = await fetch("http://umrah.azmy.aait-d.com/api/v1/client/contact-us", {
+  const response = await fetch("https://umrah.azmy.aait-d.com/api/v1/client/contact-us", {
     method: "POST",
     headers: { 
       "Content-Type": "application/json",
