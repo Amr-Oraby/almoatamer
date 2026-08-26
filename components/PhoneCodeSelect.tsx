@@ -35,7 +35,7 @@ export function PhoneCodeSelect({ value, onChange, disabled }: PhoneCodeSelectPr
           <SelectValue placeholder="Code" />
         )}
       </SelectTrigger>
-      <SelectContent dir="ltr" className="max-h-32 md:max-h-56">
+      <SelectContent dir="ltr" alignItemWithTrigger={false} className="max-h-40 md:max-h-60">
         {countries.map((country: any) => (
           <SelectItem key={country.id} value={country.code}>
             <span className="flex items-center justify-center w-full">
