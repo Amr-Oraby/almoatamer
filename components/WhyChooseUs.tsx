@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { CalendarRange, Handshake, Scale, Wallet, Zap, Lock, ArrowRight, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default function WhyChooseUs() {
   const t = useTranslations('WhyChooseUs');
@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
     <section className="py-20 md:py-28 bg-gray-50/50 relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#1a2754_1px,transparent_1px)] [background-size:20px_20px]"></div>
-      
+
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1a2754] mb-6">
@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full"
             >
@@ -77,8 +77,8 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="mt-16 text-center">
-          <Link 
-            href="#booking" 
+          <Link
+            href="/book-umrah/booking"
             className="inline-flex items-center justify-center gap-3 bg-[#1a2754] hover:bg-[#233570] text-white font-bold text-lg py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
           >
             <span>{t('cta')}</span>

@@ -1,4 +1,3 @@
-import { apiClient } from "@/lib/api/client";
-import { CountriesResponse } from "@/app/types/UserType";
+import { apiFetch } from "@/lib/api/fetcher";
 
-export const getCountries = () => apiClient<CountriesResponse>("/api/countries", { method: "GET" });
+export const getCountries = () => fetch("http://umrah.azmy.aait-d.com/api/v1/client/countries").then(res => res.json());

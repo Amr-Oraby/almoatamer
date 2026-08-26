@@ -10,10 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useForm, Controller } from 'react-hook-form';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Edit2 } from 'lucide-react';
 import { useUpdateProfile, useProfile } from '@/features/profile/hooks';
 import { useCountries } from '@/features/countries/hooks';
 
@@ -35,6 +37,16 @@ export default function ProfileForm() {
     }
   }
 
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (profile?.image) {
+      setImagePreview(profile.image);
+    }
+  }, [profile?.image]);
+
   const { register, handleSubmit, control, formState: { errors } } = useForm({
     values: {
       name: profile?.name || '',
@@ -55,11 +67,49 @@ export default function ProfileForm() {
     formData.append('country_id', data.country_id);
     formData.append('gender', data.gender);
 
+    if (imageFile) {
+      formData.append('image', imageFile);
+    }
+
     updateProfile(formData);
   };
 
   return (
     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
+
+      {/* Profile Image */}
+      <div className="flex flex-col items-center justify-center mb-6 md:mb-10">
+        <div className="relative">
+          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-50 shadow-md bg-gray-100 flex items-center justify-center">
+            {imagePreview ? (
+              <Image src={imagePreview} alt="Profile" width={128} height={128} className="w-full h-full object-cover" />
+            ) : (
+              <span className="text-gray-400 text-sm font-medium">{t('noImage') || 'No image'}</span>
+            )}
+          </div>
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="absolute bottom-1 right-1 bg-amber-500 text-white p-2.5 rounded-full shadow-lg hover:bg-amber-600 transition-colors border-2 border-white"
+          >
+            <Edit2 size={16} />
+          </button>
+        </div>
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="hidden"
+          accept="image/*"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) {
+              setImageFile(file);
+              setImagePreview(URL.createObjectURL(file));
+            }
+          }}
+        />
+      </div>
+
       {/* Full Name */}
       <div className="space-y-2">
         <Label htmlFor="name" className="text-gray-700 font-bold flex justify-start">
@@ -141,7 +191,7 @@ export default function ProfileForm() {
           rules={{ required: 'Country is required' }}
           render={({ field }) => (
             <Select onValueChange={field.onChange} value={field.value}>
-              <SelectTrigger id="country_id" className="h-12 w-full bg-white border-gray-200 rounded-xl px-4 shadow-sm focus:ring-amber-500">
+              <SelectTrigger id="country_id" className="h-12 w-full bg-white border-gray-200 rounded-xl !px-4 shadow-sm focus:ring-amber-500">
                 <div className="flex items-center justify-between w-full">
                   <SelectValue placeholder={t('selectCountry')}>
                     {countries?.find((c) => c.id.toString() === field.value)?.name}
@@ -171,7 +221,7 @@ export default function ProfileForm() {
           rules={{ required: 'Gender is required' }}
           render={({ field }) => (
             <Select onValueChange={field.onChange} value={field.value}>
-              <SelectTrigger id="gender" className="h-12 w-full bg-white border-gray-200 rounded-xl px-4 shadow-sm focus:ring-amber-500">
+              <SelectTrigger id="gender" className="h-12 w-full bg-white border-gray-200 rounded-xl !px-4 shadow-sm focus:ring-amber-500">
                 <SelectValue placeholder={t('selectGender')} />
               </SelectTrigger>
               <SelectContent>

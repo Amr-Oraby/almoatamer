@@ -55,7 +55,7 @@ export default async function LocaleLayout({
             <main className="flex-1 flex flex-col w-full">
               {children}
             </main>
-            <Toaster />
+            <Toaster position={locale === 'ar' ? 'top-right' : 'top-left'} />
           </Providers>
         </NextIntlClientProvider>
       </body>

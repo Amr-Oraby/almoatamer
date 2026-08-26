@@ -9,7 +9,7 @@ export default async function ProfileLayout({
   const t = await getTranslations('Profile.personalDetails');
 
   return (
-    <div className="min-h-screen bg-[#f8f9fc] py-6 md:py-16">
+    <div className="min-h-screen bg-[#f8f9fc] py-6 md:py-8">
       <div className="container mx-auto px-2 md:px-8 max-w-7xl">
         <div className="flex justify-between items-center mb-6 md:mb-10 px-2 md:px-0">
           <h1 className="text-3xl md:text-4xl font-extrabold text-[#1a2754]">

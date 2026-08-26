@@ -6,6 +6,7 @@ import StatsSection from '@/components/StatsSection';
 import Testimonials from '@/components/Testimonials';
 import Gallery from '@/components/Gallery';
 import { serverGet } from '@/lib/api/serverRoute';
+import OrderStats from '@/components/OrderStats';
 
 export default async function HomePage() {
   const response = await serverGet(`home`, false);
@@ -20,6 +21,7 @@ export default async function HomePage() {
   return (
     <main className="flex flex-1 flex-col w-full">
       <Hero data={sectionOne} />
+      <OrderStats />
       <PromoSection data={sectionTwo} />
       <StatsSection data={sectionThree} />
       <Testimonials data={sectionFour} />

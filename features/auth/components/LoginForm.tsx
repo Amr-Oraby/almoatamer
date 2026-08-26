@@ -7,13 +7,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { PhoneCodeSelect } from '@/components/PhoneCodeSelect';
 import { useLogin } from '../hooks';
 import { Link } from '@/i18n/routing';
 import { FaApple, FaGoogle, FaFacebookF } from 'react-icons/fa';
@@ -30,7 +24,7 @@ export default function LoginForm() {
   
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
-      phone_code: '20',
+      phone_code: '966',
       phone: '',
       password: '',
     },
@@ -56,41 +50,20 @@ export default function LoginForm() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-4">
-          <div className="flex flex-row items-stretch gap-2 h-[52px]">
+          <div className="flex items-stretch gap-3 h-[52px]">
             <div className="w-[100px] h-full flex-shrink-0">
-              <Select
-                value={phoneCode ?? "20"}
-                onValueChange={(value) => setValue('phone_code', value || '20')}
-              >
-                <SelectTrigger className="h-full bg-white rounded-xl border-input/60 focus:ring-primary" dir="ltr">
-                  <SelectValue placeholder="Code" />
-                </SelectTrigger>
-                <SelectContent dir="ltr">
-                  <SelectItem value="20">
-                    <span className="flex items-center gap-2">
-                      <span>🇪🇬</span> +20
-                    </span>
-                  </SelectItem>
-                  <SelectItem value="966">
-                    <span className="flex items-center gap-2">
-                      <span>🇸🇦</span> +966
-                    </span>
-                  </SelectItem>
-                  <SelectItem value="971">
-                    <span className="flex items-center gap-2">
-                      <span>🇦🇪</span> +971
-                    </span>
-                  </SelectItem>
-                </SelectContent>
-              </Select>
+              <PhoneCodeSelect
+                value={phoneCode ?? "966"}
+                onChange={(value) => setValue('phone_code', value)}
+                disabled={loginMutation.isPending}
+              />
             </div>
             <div className="flex-1 relative h-full">
               <Input
                 type="tel"
                 placeholder={t('enterPhone')}
-                className="h-full bg-white rounded-xl border-input/60 focus-visible:ring-primary text-base"
+                className="w-full h-full bg-white rounded-xl border-input/60 focus-visible:ring-primary text-base"
                 {...register('phone', { required: true })}
-                dir="ltr"
               />
             </div>
           </div>
@@ -99,22 +72,21 @@ export default function LoginForm() {
             <Input
               type={showPassword ? 'text' : 'password'}
               placeholder={t('enterPassword')}
-              className="h-full bg-white rounded-xl border-input/60 focus-visible:ring-primary pr-10 text-base"
+              className="w-full h-full bg-white rounded-xl border-input/60 focus-visible:ring-primary ltr:pr-10 rtl:pl-10 text-base"
               {...register('password', { required: true })}
-              dir="ltr"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute ltr:right-3 rtl:left-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
-          
+
           <div className="flex justify-start">
-            <Link 
-              href="#" 
+            <Link
+              href="/auth/forget-password"
               className="text-primary text-sm font-semibold hover:underline"
             >
               {t('forgetPassword')}
@@ -122,8 +94,8 @@ export default function LoginForm() {
           </div>
         </div>
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           disabled={loginMutation.isPending}
           className="w-full bg-[#16279f] text-white hover:bg-[#16279f]/90 h-14 rounded-xl text-lg font-semibold transition-all"
         >
@@ -133,7 +105,7 @@ export default function LoginForm() {
 
       <div className="text-center text-sm">
         <span className="text-muted-foreground">{t('dontHaveAccount')} </span>
-        <Link href="#" className="text-[#16279f] font-semibold hover:underline">
+        <Link href="/auth/register" className="text-[#16279f] font-semibold hover:underline">
           {t('registerNow')}
         </Link>
       </div>

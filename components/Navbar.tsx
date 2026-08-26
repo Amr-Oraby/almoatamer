@@ -71,7 +71,7 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
                 </Link>
               </div>
             ) : (
-              <Link href="/login">
+              <Link href="/auth">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 rounded-full shadow-md transition-all hidden sm:flex">
                   {t('login')}
                 </Button>
@@ -125,7 +125,7 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
                       </Link>
                     </div>
                   ) : (
-                    <Link href="/login">
+                    <Link href="/auth">
                       <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-6 rounded-xl shadow-md transition-all text-lg">
                         {t('login')}
                       </Button>

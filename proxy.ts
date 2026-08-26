@@ -21,7 +21,7 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const protectedRoutes = ['/profile', '/orders', '/messages'];
+  const protectedRoutes = ['/profile', '/orders', '/messages', '/book-umrah/booking'];
   
   const locale = pathname.split('/')[1] || routing.defaultLocale;
   
@@ -33,7 +33,7 @@ export default function middleware(request: NextRequest) {
     const token = request.cookies.get('access_token')?.value;
 
     if (!token) {
-      return NextResponse.redirect(new URL(`/${locale}/login?error=unauthorized`, request.url));
+      return NextResponse.redirect(new URL(`/${locale}/auth?error=unauthorized`, request.url));
     }
 
     const tokenExpiry = getTokenExpiry(token);
@@ -42,7 +42,33 @@ export default function middleware(request: NextRequest) {
       : null;
 
     if (secondsUntilExpiry !== null && secondsUntilExpiry <= 0) {
-      return NextResponse.redirect(new URL(`/${locale}/login?error=expired`, request.url));
+      return NextResponse.redirect(new URL(`/${locale}/auth?error=expired`, request.url));
+    }
+  }
+
+  const authRoutes = ['/auth/login', '/auth/register', '/auth/forget-password', '/auth/verify', '/auth/reset-password', '/auth'];
+  const isAuthRoute = authRoutes.some((route) => 
+    pathname === `/${locale}${route}` || pathname.startsWith(`/${locale}${route}/`)
+  );
+
+  if (isAuthRoute) {
+    const token = request.cookies.get('access_token')?.value;
+    if (token) {
+      return NextResponse.redirect(new URL(`/${locale}`, request.url));
+    }
+
+    if (pathname === `/${locale}/auth/verify` || pathname.startsWith(`/${locale}/auth/verify/`)) {
+      const pendingEmail = request.cookies.get('pending_verification_email')?.value;
+      if (!pendingEmail) {
+        return NextResponse.redirect(new URL(`/${locale}/auth/forget-password`, request.url));
+      }
+    }
+
+    if (pathname === `/${locale}/auth/reset-password` || pathname.startsWith(`/${locale}/auth/reset-password/`)) {
+      const resetGranted = request.cookies.get('password_reset_granted')?.value;
+      if (!resetGranted) {
+        return NextResponse.redirect(new URL(`/${locale}/auth/login`, request.url));
+      }
     }
   }
 

@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between lg:justify-end gap-10 lg:gap-16 xl:gap-24 lg:w-7/12">
+        <div className="flex flex-col sm:flex-row justify-between lg:justify-end gap-10 lg:gap-10 xl:gap-14 lg:w-7/12 lg:max-w-[600px] xl:max-w-[700px]">
           {/* Sections */}
           <div className="flex flex-col items-center sm:items-start gap-2">
             <h3 className="font-bold text-sm xl:text-base text-foreground mb-1">{t('departments')}</h3>
@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between sm:justify-start w-full sm:w-auto gap-8 sm:gap-10 lg:gap-16 xl:gap-24">
+          <div className="flex flex-row justify-between sm:justify-start w-full sm:w-auto gap-8 sm:gap-10 lg:gap-10 xl:gap-14">
             {/* Links */}
             <div className="flex flex-col items-start gap-2">
               <h3 className="font-bold text-sm xl:text-base text-foreground mb-1">{t('links')}</h3>
