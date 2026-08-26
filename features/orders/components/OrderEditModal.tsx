@@ -25,7 +25,7 @@ export default function OrderEditModal({ isOpen, onClose, order }: OrderEditModa
     // State matching payload fields
     const [name, setName] = useState(order.name || "");
     const [gender, setGender] = useState(order.gender || "male");
-    const [phoneCode, setPhoneCode] = useState(order.phone_code || "+966");
+    const [phoneCode, setPhoneCode] = useState(order.phone_code || "20");
     const [phone, setPhone] = useState(order.phone || "");
     const [date, setDate] = useState(order.unformatted_date || "");
     const [langId, setLangId] = useState(order.language?.id === 1 ? "1" : "2");
@@ -37,7 +37,7 @@ export default function OrderEditModal({ isOpen, onClose, order }: OrderEditModa
         if (isOpen) {
             setName(order.name || "");
             setGender(order.gender || "male");
-            setPhoneCode(order.phone_code || "+966");
+            setPhoneCode(order.phone_code || "20");
             setPhone(order.phone || "");
             setDate(order.unformatted_date || "");
             setLangId(order.language?.id === 1 ? "1" : "2");

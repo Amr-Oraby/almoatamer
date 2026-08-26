@@ -24,7 +24,7 @@ export default function LoginForm() {
   
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
-      phone_code: '966',
+      phone_code: '20',
       phone: '',
       password: '',
     },
@@ -53,7 +53,7 @@ export default function LoginForm() {
           <div className="flex items-stretch gap-3 h-[52px]">
             <div className="w-[100px] h-full flex-shrink-0">
               <PhoneCodeSelect
-                value={phoneCode ?? "966"}
+                value={phoneCode ?? "20"}
                 onChange={(value) => setValue('phone_code', value)}
                 disabled={loginMutation.isPending}
               />

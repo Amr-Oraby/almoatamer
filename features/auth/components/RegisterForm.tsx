@@ -29,7 +29,7 @@ export default function RegisterForm() {
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<RegisterFormValues>({
     defaultValues: {
       name: '',
-      phone_code: '966',
+      phone_code: '20',
       phone: '',
       email: '',
       password: '',
@@ -89,7 +89,7 @@ export default function RegisterForm() {
           <div className="flex items-stretch gap-3 h-[52px]">
             <div className="w-[100px] h-full flex-shrink-0">
               <PhoneCodeSelect
-                value={phoneCode ?? "966"}
+                value={phoneCode ?? "20"}
                 onChange={(value) => setValue('phone_code', value)}
                 disabled={registerMutation.isPending}
               />
