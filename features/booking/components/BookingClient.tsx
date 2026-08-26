@@ -173,12 +173,15 @@ export default function BookingClient() {
                     {/* Date */}
                     <div className="relative">
                         <input
-                            type="date"
+                            type={formData.date ? "date" : "text"}
+                            onFocus={(e) => (e.target.type = "date")}
+                            onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
                             name="date"
                             value={formData.date || ""}
                             onChange={handleChange}
                             min={minDate}
                             max={maxDate}
+                            placeholder={t("date")}
                             className={`w-full bg-white border ${!isDateAvailable ? 'border-red-500 text-red-500' : 'border-gray-200 text-gray-800'} rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-[#1a2754]/20 transition-all shadow-sm block`}
                             required
                         />
