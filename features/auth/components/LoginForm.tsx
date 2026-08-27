@@ -21,7 +21,7 @@ type LoginFormValues = {
 export default function LoginForm() {
   const t = useTranslations('Auth');
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<LoginFormValues>({
     defaultValues: {
       phone_code: '20',
@@ -125,7 +125,11 @@ export default function LoginForm() {
         <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
           <FaApple size={24} className="text-black" />
         </Button>
-        <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
+        <Button
+          onClick={() => {
+            window.location.href = "/api/auth/google";
+          }}
+          variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
           <FaGoogle size={22} />
         </Button>
         <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
