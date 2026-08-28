@@ -132,7 +132,11 @@ export default function LoginForm() {
           variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
           <FaGoogle size={22} />
         </Button>
-        <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
+        <Button
+          onClick={() => {
+            window.location.href = "/api/auth/facebook";
+          }}
+          variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
           <FaFacebookF size={22} className="text-[#1877F2]" />
         </Button>
       </div>
