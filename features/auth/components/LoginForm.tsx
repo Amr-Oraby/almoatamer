@@ -122,9 +122,9 @@ export default function LoginForm() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
+        {/* <Button variant="outline" className="h-14 rounded-xl border-input/60 hover:bg-muted/50 bg-white shadow-sm">
           <FaApple size={24} className="text-black" />
-        </Button>
+        </Button> */}
         <Button
           onClick={() => {
             window.location.href = "/api/auth/google";
